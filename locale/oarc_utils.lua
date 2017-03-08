@@ -389,36 +389,6 @@ function CreateCropCircle(surface, centerPos, chunkArea, tileRadius)
     surface.set_tiles(dirtTiles)
 end
 
--- COPIED FROM jvmguy!
--- Enforce a square of land, with a tree border
--- this is equivalent to the CreateCropCircle code
-function CreateCropOctagon(surface, centerPos, chunkArea, tileRadius)
-
-    local dirtTiles = {}
-    for i=chunkArea.left_top.x,chunkArea.right_bottom.x,1 do
-        for j=chunkArea.left_top.y,chunkArea.right_bottom.y,1 do
-
-            local distVar1 = math.floor(math.max(math.abs(centerPos.x - i), math.abs(centerPos.y - j)))
-            local distVar2 = math.floor(math.abs(centerPos.x - i) + math.abs(centerPos.y - j))
-            local distVar = math.max(distVar1, distVar2 * 0.707);
-
-            -- Fill in all unexpected water in a circle
-            if (distVar < tileRadius+2) then
-                if (surface.get_tile(i,j).collides_with("water-tile") or ENABLE_SPAWN_FORCE_GRASS) then
-                    table.insert(dirtTiles, {name = "grass", position ={i,j}})
-                end
-            end
-
-            -- Create a tree ring
-            if ((distVar < tileRadius) and 
-                (distVar > tileRadius-2)) then
-                surface.create_entity({name="tree-01", amount=1, position={i, j}})
-            end
-        end
-    end    
-    surface.set_tiles(dirtTiles)
-end
-
 -- Create a horizontal line of water
 function CreateWaterStrip(surface, leftPos, length)
     local waterTiles = {}
@@ -427,6 +397,34 @@ function CreateWaterStrip(surface, leftPos, length)
     end
     surface.set_tiles(waterTiles)
 end 
+
+-- Create a moat around starting area
+function CreateMoat(surface, center, distance)
+    local waterTiles = {}
+	local x = center.x - distance
+	local y = center.y - distance
+	
+    for i=0,distance*2,1 do
+        table.insert(waterTiles, {name = "water", position={x,y+i}})
+    end
+	
+	for i=0,distance*2,1 do
+        table.insert(waterTiles, {name = "water", position={x+i,y}})
+    end
+	
+	x = center.x + distance
+	y = center.y + distance
+	
+    for i=0,distance*2,1 do
+        table.insert(waterTiles, {name = "water", position={x,y-i}})
+    end
+	
+	for i=0,distance*2,1 do
+        table.insert(waterTiles, {name = "water", position={x-i,y}})
+    end	
+	
+    surface.set_tiles(waterTiles)
+end
 
 -- Get an area given a position and distance.
 -- Square length = 2x distance
@@ -700,7 +698,6 @@ function CreateSpawnAreas(surface, chunkArea, spawnPointTable)
             RemoveInCircle(surface, chunkArea, "resource", spawnPos, ENFORCE_LAND_AREA_TILE_DIST+5)
 
             CreateCropCircle(surface, spawnPos, chunkArea, ENFORCE_LAND_AREA_TILE_DIST)
-            CreateCropOctagon(surface, spawnPos, chunkArea, ENFORCE_LAND_AREA_TILE_DIST)
         end
 
         -- Provide starting resources
@@ -710,7 +707,10 @@ function CreateSpawnAreas(surface, chunkArea, spawnPointTable)
             CreateWaterStrip(surface,
                             {x=spawnPos.x+WATER_SPAWN_OFFSET_X, y=spawnPos.y+WATER_SPAWN_OFFSET_Y},
                             WATER_SPAWN_LENGTH)
+							
             GenerateStartingResources(surface, spawnPos)
+			
+			CreateMoat(surface, spawnPos, 160)
         end
     end
 end
