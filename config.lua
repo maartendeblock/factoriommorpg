@@ -1,5 +1,4 @@
 -- config.lua
--- Dec 2016
 -- Configuration Options
 
 --------------------------------------------------------------------------------
@@ -7,22 +6,10 @@
 --------------------------------------------------------------------------------
 
 WELCOME_MSG = "Hello!"
-GAME_MODE_MSG = "In the current game mode, a satellite must be launched from an existing far away rocket silo to win!"
+GAME_MODE_MSG = "Welcome to Factorio MMORPG!"
 MODULES_ENABLED = "Mods Enabled: Separate Spawns, RSO, Gravestone Chests, Long-Reach, Autofill, Blueprint Strings"
 
-WELCOME_MSG_TITLE = "Get ready!"
-WELCOME_MSG1 = "Rules: Be polite. Ask before changing other players's stuff. Have fun!"
-WELCOME_MSG2 = "This server is running a custom scenario that changes spawn locations."
-
-OTHER_MSG1 = "Latest updates in this scenario version (0.2.8):"
-OTHER_MSG2 = "New spawn layout. RSO resource richness reduced"
-
-
-WELCOME_MSG3 = "Due to the way this scenario works, it may take some time for the land"
-WELCOME_MSG4 = "around your new spawn area to generate..."
-WELCOME_MSG5 = "Please wait for 10-20 seconds when you select your first spawn."
-WELCOME_MSG6 = "All credit goes to: SteamID:Oarc | Twitter:@_Oarc_ | oarcinae@gmail.com"
-
+WELCOME_MSG_TITLE = "A brand new world"
 
 SPAWN_MSG1 = "Current Spawn Mode: HARDCORE WILDERNESS (Always in BETA)"
 SPAWN_MSG2 = "In this mode, there is no default spawn. Everyone starts in the wild!"

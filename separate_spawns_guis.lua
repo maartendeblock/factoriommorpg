@@ -1,12 +1,11 @@
 -- separate_spawns_guis.lua
--- Nov 2016
 
 -- I made a separate file for all the GUI related functions
 
 require("separate_spawns")
 
-local SPAWN_GUI_MAX_WIDTH = 450
-local SPAWN_GUI_MAX_HEIGHT = 650
+local SPAWN_GUI_MAX_WIDTH = 900
+local SPAWN_GUI_MAX_HEIGHT = 1250
 
 -- Use this for testing shared spawns...
 -- local sharedSpawnExample1 = {openAccess=true,
@@ -26,61 +25,86 @@ local SPAWN_GUI_MAX_HEIGHT = 650
 -- A display gui message
 -- Meant to be display the first time a player joins.
 function DisplayWelcomeTextGui(player)
-    player.gui.center.add{name = "welcome_msg",
-                            type = "frame",
-                            direction = "vertical",
-                            caption=global.welcome_msg_title}
+    player.gui.center.add{name = "welcome_msg", type = "frame", direction = "vertical", caption=global.welcome_msg_title}
     local wGui = player.gui.center.welcome_msg
 
     wGui.style.maximal_width = SPAWN_GUI_MAX_WIDTH
     wGui.style.maximal_height = SPAWN_GUI_MAX_HEIGHT
+	
+    wGui.add{name = "welcome_msg_lbl1", type = "label", caption="The moment CTT (Consciousness Transferal Technology) was invented,"}
+	ApplyStyle(wGui.welcome_msg_lbl1, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl2", type = "label", caption="everything changed. Death was no longer permanent, people just"}
+	ApplyStyle(wGui.welcome_msg_lbl2, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl3", type = "label", caption="“respawned” in a healthy, young body. At first, it was just for"}
+	ApplyStyle(wGui.welcome_msg_lbl3, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl4", type = "label", caption="the ultra rich. But soon it was recognized as a human right."}
+	ApplyStyle(wGui.welcome_msg_lbl4, my_label_style)
 
-
-
-    wGui.add{name = "welcome_msg_lbl1", type = "label",
-                    caption=WELCOME_MSG1}
-    wGui.add{name = "welcome_msg_lbl2", type = "label",
-                    caption=WELCOME_MSG2}
-    wGui.add{name = "welcome_msg_spacer1", type = "label",
-                    caption=" "}
-
-    ApplyStyle(wGui.welcome_msg_lbl1, my_label_style)
-    ApplyStyle(wGui.welcome_msg_lbl2, my_label_style)
+	wGui.add{name = "welcome_msg_spacer1", type = "label", caption=" "}
     ApplyStyle(wGui.welcome_msg_spacer1, my_spacer_style)
 
-    wGui.add{name = "other_msg_lbl1", type = "label",
-                    caption=OTHER_MSG1}
-    wGui.add{name = "other_msg_lbl2", type = "label",
-                    caption=OTHER_MSG2}
-    wGui.add{name = "other_msg_spacer1", type = "label",
-                    caption=" "}
-
-    ApplyStyle(wGui.other_msg_lbl1, my_label_style)
-    ApplyStyle(wGui.other_msg_lbl2, my_label_style)
-    ApplyStyle(wGui.other_msg_spacer1, my_spacer_style)
-
-    wGui.add{name = "welcome_msg_lbl3", type = "label",
-                    caption=WELCOME_MSG3}
-    wGui.add{name = "welcome_msg_lbl4", type = "label",
-                    caption=WELCOME_MSG4}
-    wGui.add{name = "welcome_msg_lbl5", type = "label",
-                    caption=WELCOME_MSG5}
-    wGui.add{name = "welcome_msg_lbl6", type = "label",
-                    caption=WELCOME_MSG6}
-    wGui.add{name = "welcome_msg_spacer2", type = "label",
-                    caption=" "}
-
-    ApplyStyle(wGui.welcome_msg_lbl3, my_warning_style)
-    ApplyStyle(wGui.welcome_msg_lbl4, my_warning_style)
-    ApplyStyle(wGui.welcome_msg_lbl5, my_warning_style)
-    ApplyStyle(wGui.welcome_msg_lbl6, my_label_style)
+    wGui.add{name = "welcome_msg_lbl5", type = "label", caption="The population exploded and put a tremendous pressure on earth’s"}
+	ApplyStyle(wGui.welcome_msg_lbl5, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl6", type = "label", caption="resources. It sparked an age of incredible technological advances"}
+	ApplyStyle(wGui.welcome_msg_lbl6, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl7", type = "label", caption="and political turmoil. Soon the moon and Mars were colonised. But"}
+	ApplyStyle(wGui.welcome_msg_lbl7, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl8", type = "label", caption="even that wasn’t enough, the boundaries had to be pushed further."}
+	ApplyStyle(wGui.welcome_msg_lbl8, my_label_style) 
+    wGui.add{name = "welcome_msg_lbl9", type = "label", caption="Almost every piece of the solar system that was colonisable has "}
+	ApplyStyle(wGui.welcome_msg_lbl9, my_label_style)
+    wGui.add{name = "welcome_msg_lbl10", type = "label", caption="been colonised."}
+	ApplyStyle(wGui.welcome_msg_lbl10, my_label_style)
+	
+    wGui.add{name = "welcome_msg_spacer2", type = "label", caption=" "}
     ApplyStyle(wGui.welcome_msg_spacer2, my_spacer_style)
 
+    wGui.add{name = "welcome_msg_lbl11", type = "label", caption="Now the human race is looking beyond it’s own solar system ..."}
+	ApplyStyle(wGui.welcome_msg_lbl11, my_label_style)
+	
+    wGui.add{name = "welcome_msg_spacer3", type = "label", caption=" "}
+    ApplyStyle(wGui.welcome_msg_spacer3, my_spacer_style)
 
+    wGui.add{name = "welcome_msg_lbl12", type = "label", caption="A colonial ship with on board CTT has been dispatched a long time "}
+	ApplyStyle(wGui.welcome_msg_lbl12, my_label_style)
+    wGui.add{name = "welcome_msg_lbl13", type = "label", caption="ago and has arrived at a habitable planet. Consciousness can be "}
+	ApplyStyle(wGui.welcome_msg_lbl13, my_label_style)
+    wGui.add{name = "welcome_msg_lbl14", type = "label", caption="transferred through subspace to the ship making the trip near instant, "}
+	ApplyStyle(wGui.welcome_msg_lbl14, my_label_style)
+    wGui.add{name = "welcome_msg_lbl15", type = "label", caption="but very expensive."}
+	ApplyStyle(wGui.welcome_msg_lbl15, my_label_style)
+
+    wGui.add{name = "welcome_msg_spacer4", type = "label", caption=" "}
+    ApplyStyle(wGui.welcome_msg_spacer4, my_spacer_style)
+	
+    wGui.add{name = "welcome_msg_lbl16", type = "label", caption="Only large corporations can afford to send someone there. You are on "}
+	ApplyStyle(wGui.welcome_msg_lbl16, my_label_style)
+    wGui.add{name = "welcome_msg_lbl17", type = "label", caption="of these representatives. It is your job to secure as much land and "}
+	ApplyStyle(wGui.welcome_msg_lbl17, my_label_style)
+    wGui.add{name = "welcome_msg_lbl18", type = "label", caption="resources as possible for your corporation. "}
+	ApplyStyle(wGui.welcome_msg_lbl18, my_label_style)
+
+    wGui.add{name = "welcome_msg_spacer5", type = "label", caption=" "}
+    ApplyStyle(wGui.welcome_msg_spacer5, my_spacer_style)	
+	
+    wGui.add{name = "welcome_msg_lbl19", type = "label", caption="The colonial ship is owned by the central government and enforces a "}
+	ApplyStyle(wGui.welcome_msg_lbl19, my_label_style)
+    wGui.add{name = "welcome_msg_lbl20", type = "label", caption="minimal number of laws on the new planet. But since death is no "}
+	ApplyStyle(wGui.welcome_msg_lbl20, my_label_style)
+    wGui.add{name = "welcome_msg_lbl21", type = "label", caption="longer permanent, they let you do pretty much anything as long as "}
+	ApplyStyle(wGui.welcome_msg_lbl21, my_label_style)
+    wGui.add{name = "welcome_msg_lbl22", type = "label", caption="you pay your taxes."}
+	ApplyStyle(wGui.welcome_msg_lbl22, my_label_style)
+
+    wGui.add{name = "welcome_msg_spacer6", type = "label", caption=" "}
+    ApplyStyle(wGui.welcome_msg_spacer6, my_spacer_style)
+	
+    wGui.add{name = "welcome_msg_spacer7", type = "label", caption=" "}
+    ApplyStyle(wGui.welcome_msg_spacer7, my_spacer_style)
 
     wGui.add{name = "welcome_okay_btn",
                     type = "button",
-                    caption="I Understand"}
+                    caption="Transfer my consciousness"}
 end
 
 
