@@ -82,15 +82,14 @@ WATER_SPAWN_LENGTH = 8
 -- Start resource amounts
 START_IRON_AMOUNT = 1500
 START_COPPER_AMOUNT = 1500
-START_STONE_AMOUNT = 1000 --1500
+START_STONE_AMOUNT = 1500
 START_COAL_AMOUNT = 1500
 START_OIL_AMOUNT = 30000
 
 -- Start resource shape
 -- If this is true, it will be a circle
 -- If false, it will be a square
-ENABLE_RESOURCE_SHAPE_CIRCLE = false
-ENABLE_TREE_BORDER = false
+ENABLE_RESOURCE_SHAPE_CIRCLE = true
 
 -- Start resource position and size
 -- Position is relative to player starting location
@@ -115,6 +114,10 @@ START_RESOURCE_OIL_POS_Y = 0
 
 -- Force the land area circle at the spawn to be fully grass
 ENABLE_SPAWN_FORCE_GRASS = true
+
+-- Create a tree border around the spwan area
+ENABLE_TREE_BORDER = false
+
 
 ---------------------------------------
 -- Safe Spawn Area Options
