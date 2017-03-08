@@ -150,7 +150,7 @@ ENFORCE_LAND_AREA_TILE_DIST = 48
 MAIN_FORCE = "main_force"
 
 -- Enable if people can spawn at the main base
-ENABLE_DEFAULT_SPAWN = true
+ENABLE_DEFAULT_SPAWN = false
 
 -- Enable if people can allow others to join their base
 ENABLE_SHARED_SPAWNS = true
