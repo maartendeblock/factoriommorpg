@@ -70,7 +70,7 @@ function GenerateRocketSiloChunk(event)
     end
 
     -- Create rocket silo
-    CreateRocketSilo(surface, chunkArea, MAIN_FORCE)
+    -- CreateRocketSilo(surface, chunkArea, MAIN_FORCE)
     CreateCropCircle(surface, global.siloPosition, chunkArea, 40, true)
 end
 
