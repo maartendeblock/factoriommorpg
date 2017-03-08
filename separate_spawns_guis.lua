@@ -330,9 +330,9 @@ function SpawnOptsGuiClick(event)
                 SendBroadcastMsg(player.name .. " joined the main force from a great distance!")
             end
 
-            player.print("PLEASE WAIT WHILE YOUR SPAWN POINT IS GENERATED!")
-            player.print("PLEASE WAIT WHILE YOUR SPAWN POINT IS GENERATED!!")
-            player.print("PLEASE WAIT WHILE YOUR SPAWN POINT IS GENERATED!!!")
+            player.print("PLEASE WAIT WHILE YOU ARE BEING TRANSPORTED!")
+            player.print("PLEASE WAIT WHILE YOU ARE BEING TRANSPORTED!!")
+            player.print("PLEASE WAIT WHILE YOU ARE BEING TRANSPORTED!!!")
         end
 
     elseif (buttonClicked == "join_other_spawn") then

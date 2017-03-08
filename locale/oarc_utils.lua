@@ -359,7 +359,7 @@ function DropGravestoneChests(player)
 end
 
 -- Enforce a circle of land, also adds trees in a ring around the area.
-function CreateCropCircle(surface, centerPos, chunkArea, tileRadius)
+function CreateCropCircle(surface, centerPos, chunkArea, tileRadius, treeBorder)
 
     local tileRadSqr = tileRadius^2
 
@@ -379,10 +379,12 @@ function CreateCropCircle(surface, centerPos, chunkArea, tileRadius)
             end
 
             -- Create a circle of trees around the spawn point.
-            if ((distVar < tileRadSqr-200) and 
-                (distVar > tileRadSqr-300)) then
-                surface.create_entity({name="tree-01", amount=1, position={i, j}})
-            end
+			if (treeBorder) then
+				if ((distVar < tileRadSqr-200) and 
+					(distVar > tileRadSqr-300)) then
+					surface.create_entity({name="tree-01", amount=1, position={i, j}})
+				end
+			end
         end
     end
 
@@ -401,26 +403,27 @@ end
 -- Create a moat around starting area
 function CreateMoat(surface, center, distance)
     local waterTiles = {}
+	local watertType = "water"
 	local x = center.x - distance
 	local y = center.y - distance
 	
     for i=0,distance*2,1 do
-        table.insert(waterTiles, {name = "water", position={x,y+i}})
+        table.insert(waterTiles, {name = watertType, position={x,y+i}})
     end
 	
 	for i=0,distance*2,1 do
-        table.insert(waterTiles, {name = "water", position={x+i,y}})
+        table.insert(waterTiles, {name = watertType, position={x+i,y}})
     end
 	
 	x = center.x + distance
 	y = center.y + distance
 	
     for i=0,distance*2,1 do
-        table.insert(waterTiles, {name = "water", position={x,y-i}})
+        table.insert(waterTiles, {name = watertType, position={x,y-i}})
     end
 	
 	for i=0,distance*2,1 do
-        table.insert(waterTiles, {name = "water", position={x-i,y}})
+        table.insert(waterTiles, {name = watertType, position={x-i,y}})
     end	
 	
     surface.set_tiles(waterTiles)
@@ -697,7 +700,7 @@ function CreateSpawnAreas(surface, chunkArea, spawnPointTable)
             RemoveInCircle(surface, chunkArea, "tree", spawnPos, ENFORCE_LAND_AREA_TILE_DIST+5)
             RemoveInCircle(surface, chunkArea, "resource", spawnPos, ENFORCE_LAND_AREA_TILE_DIST+5)
 
-            CreateCropCircle(surface, spawnPos, chunkArea, ENFORCE_LAND_AREA_TILE_DIST)
+            CreateCropCircle(surface, spawnPos, chunkArea, ENFORCE_LAND_AREA_TILE_DIST, ENABLE_TREE_BORDER)
         end
 
         -- Provide starting resources
@@ -710,7 +713,7 @@ function CreateSpawnAreas(surface, chunkArea, spawnPointTable)
 							
             GenerateStartingResources(surface, spawnPos)
 			
-			CreateMoat(surface, spawnPos, 160)
+			CreateMoat(surface, spawnPos, MOAT_DISTANCE)
         end
     end
 end

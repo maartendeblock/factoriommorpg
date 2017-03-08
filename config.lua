@@ -61,6 +61,9 @@ ENABLE_BLUEPRINT_STRING = true
 ---------------------------------------
 -- Distance Options
 ---------------------------------------
+-- Moat distance (= lot size)
+MOAT_DISTANCE = 80
+
 -- Near Distance in chunks
 NEAR_MIN_DIST = 25 --25
 NEAR_MAX_DIST = 100 --100
@@ -86,7 +89,8 @@ START_OIL_AMOUNT = 30000
 -- Start resource shape
 -- If this is true, it will be a circle
 -- If false, it will be a square
-ENABLE_RESOURCE_SHAPE_CIRCLE = true
+ENABLE_RESOURCE_SHAPE_CIRCLE = false
+ENABLE_TREE_BORDER = false
 
 -- Start resource position and size
 -- Position is relative to player starting location

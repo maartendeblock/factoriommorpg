@@ -38,7 +38,6 @@ require("config")
 require("separate_spawns")
 require("separate_spawns_guis")
 
-
 --------------------------------------------------------------------------------
 -- Rocket Launch Event Code
 -- Controls the "win condition"
@@ -173,7 +172,6 @@ end)
 -- Player Events
 ----------------------------------------
 script.on_event(defines.events.on_player_joined_game, function(event)
-    
     PlayerJoinedMessages(event)
 
     if ENABLE_TAGS then
