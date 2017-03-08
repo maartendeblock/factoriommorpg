@@ -23,12 +23,8 @@ WELCOME_MSG_TITLE_OARC = "Welcome to Oarc's Server"
 
 --------------------------------------------------------------------------------
 -- Module Enables
--- These enables are not fully tested! For example, disable separate spawns
--- will probably break the frontier rocket silo mode
+-- These enables are not fully tested!
 --------------------------------------------------------------------------------
-
--- Frontier style rocket silo mode
-FRONTIER_ROCKET_SILO_MODE = true
 
 -- Separate spawns
 ENABLE_SEPARATE_SPAWNS = true
@@ -185,20 +181,6 @@ ENEMY_EXPANSION = false
 -- Divide the alien factors by this number to reduce it (or multiply if < 1)
 ENEMY_POLLUTION_FACTOR_DIVISOR = 10
 ENEMY_DESTROY_FACTOR_DIVISOR = 5
-
---------------------------------------------------------------------------------
--- Frontier Rocket Silo Options
---------------------------------------------------------------------------------
-
-SILO_CHUNK_DISTANCE_X = 400 --250
-SILO_DISTANCE_X = SILO_CHUNK_DISTANCE_X*CHUNK_SIZE + CHUNK_SIZE/2
-SILO_DISTANCE_Y = 16
-
--- Should be in the middle of a chunk
-SILO_POSITION = {x = SILO_DISTANCE_X, y = SILO_DISTANCE_Y}
-
--- If this is enabled, the static position is ignored.
-ENABLE_RANDOM_SILO_POSITION = true
 
 --------------------------------------------------------------------------------
 -- Long Reach Options
