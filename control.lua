@@ -94,15 +94,15 @@ script.on_init(function(event)
         InitSpawnGlobalsAndForces()
     end
 
-    if ENABLE_RANDOM_SILO_POSITION then
-        SetRandomSiloPosition()
-    else
-        SetFixedSiloPosition()
-    end
+    -- if ENABLE_RANDOM_SILO_POSITION then
+        -- SetRandomSiloPosition()
+    -- else
+        -- SetFixedSiloPosition()
+    -- end
 
-    if FRONTIER_ROCKET_SILO_MODE then
-        ChartRocketSiloArea(game.forces[MAIN_FORCE])
-    end
+    -- if FRONTIER_ROCKET_SILO_MODE then
+        -- ChartRocketSiloArea(game.forces[MAIN_FORCE])
+    -- end
 
     if ENABLE_BLUEPRINT_STRING then
         bps_init()
