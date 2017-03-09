@@ -1,27 +1,14 @@
 -- control.lua
--- Nov 2016
 
+-- Factorio MMORPG
+-- code based on
 -- Oarc's Separated Spawn Scenario
--- 
--- I wanted to create a scenario that allows you to spawn in separate locations
--- From there, I ended up adding a bunch of other minor/major features
 -- 
 -- Credit:
 --  RSO mod to RSO author - Orzelek - I contacted him via the forum
 --  Tags - Taken from WOGs scenario 
 --  Event - Taken from WOGs scenario (looks like original source was 3Ra)
 --
--- Feel free to re-use anything you want. It would be nice to give me credit
--- if you can.
--- 
--- Follow server info on @_Oarc_
-
-
--- To keep the scenario more manageable I have done the following:
---      1. Keep all event calls in control.lua (here)
---      2. Put all config options in config.lua
---      3. Put mods into their own files where possible (RSO has multiple)
-
 
 -- Generic Utility Includes
 require("locale/oarc_utils")
