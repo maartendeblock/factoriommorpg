@@ -184,9 +184,6 @@ end)
 -- On Research Finished
 ----------------------------------------
 script.on_event(defines.events.on_research_finished, function(event)
-    if FRONTIER_ROCKET_SILO_MODE then
-        RemoveRocketSiloRecipe(event)
-    end
 
     if ENABLE_BLUEPRINT_STRING then
         bps_on_research_finished(event)
