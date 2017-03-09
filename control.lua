@@ -10,7 +10,6 @@
 --  RSO mod to RSO author - Orzelek - I contacted him via the forum
 --  Tags - Taken from WOGs scenario 
 --  Event - Taken from WOGs scenario (looks like original source was 3Ra)
---  Rocket Silo - Taken from Frontier as an idea
 --
 -- Feel free to re-use anything you want. It would be nice to give me credit
 -- if you can.
@@ -26,8 +25,8 @@
 
 -- Generic Utility Includes
 require("locale/oarc_utils")
+require("locale/debug/debug")
 require("locale/rso/rso_control")
-require("locale/frontier_silo")
 require("locale/tag")
 require("locale/blueprintstring/bps")
 
@@ -94,16 +93,6 @@ script.on_init(function(event)
         InitSpawnGlobalsAndForces()
     end
 
-    if ENABLE_RANDOM_SILO_POSITION then
-        SetRandomSiloPosition()
-    else
-        SetFixedSiloPosition()
-    end
-
-    if FRONTIER_ROCKET_SILO_MODE then
-        ChartRocketSiloArea(game.forces[MAIN_FORCE])
-    end
-
     if ENABLE_BLUEPRINT_STRING then
         bps_init()
     end
@@ -111,18 +100,6 @@ script.on_init(function(event)
     global.welcome_msg = WELCOME_MSG
     global.welcome_msg_title = WELCOME_MSG_TITLE
 end)
-
-
-----------------------------------------
--- Freeplay rocket launch info
--- Slightly modified for my purposes
-----------------------------------------
-script.on_event(defines.events.on_rocket_launched, function(event)
-    if FRONTIER_ROCKET_SILO_MODE then
-        RocketLaunchEvent(event)
-    end
-end)
-
 
 ----------------------------------------
 -- Chunk Generation
@@ -136,10 +113,6 @@ script.on_event(defines.events.on_chunk_generated, function(event)
         RSO_ChunkGenerated(event)
     end
 
-    if FRONTIER_ROCKET_SILO_MODE then
-        GenerateRocketSiloChunk(event)
-    end
-
     -- This MUST come after RSO generation!
     if ENABLE_SEPARATE_SPAWNS then
         SeparateSpawnsGenerateChunk(event)
@@ -151,7 +124,9 @@ end)
 -- Gui Click
 ----------------------------------------
 script.on_event(defines.events.on_gui_click, function(event)
-    if ENABLE_TAGS then
+    DebugGuiClick(event)
+	
+	if ENABLE_TAGS then
         TagGuiClick(event)
     end
 
@@ -177,6 +152,8 @@ script.on_event(defines.events.on_player_joined_game, function(event)
     if ENABLE_TAGS then
         CreateTagGui(event)
     end
+	
+	CreateDebugGui(event)
 end)
 
 script.on_event(defines.events.on_player_created, function(event)

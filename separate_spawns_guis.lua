@@ -77,7 +77,7 @@ function DisplayWelcomeTextGui(player)
     wGui.add{name = "welcome_msg_spacer4", type = "label", caption=" "}
     ApplyStyle(wGui.welcome_msg_spacer4, my_spacer_style)
 	
-    wGui.add{name = "welcome_msg_lbl16", type = "label", caption="Only large corporations can afford to send someone there. You are on "}
+    wGui.add{name = "welcome_msg_lbl16", type = "label", caption="Only large corporations can afford to send someone there. You are one "}
 	ApplyStyle(wGui.welcome_msg_lbl16, my_label_style)
     wGui.add{name = "welcome_msg_lbl17", type = "label", caption="of these representatives. It is your job to secure as much land and "}
 	ApplyStyle(wGui.welcome_msg_lbl17, my_label_style)
