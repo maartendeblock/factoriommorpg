@@ -168,6 +168,9 @@ script.on_event(defines.events.on_player_created, function(event)
     else
         SeparateSpawnsPlayerCreated(event)
     end
+	
+	-- Disable landfill
+	game.forces[MAIN_FORCE].technologies["landfill"].enabled = false
 
     -- Not sure if this should be here or in player joined....
     if ENABLE_BLUEPRINT_STRING then
