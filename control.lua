@@ -96,6 +96,10 @@ end)
 ----------------------------------------
 -- Player Events
 ----------------------------------------
+
+----------------------------------------
+-- Player joined the game
+----------------------------------------
 script.on_event(defines.events.on_player_joined_game, function(event)
     PlayerJoinedMessages(event)
 
@@ -106,6 +110,9 @@ script.on_event(defines.events.on_player_joined_game, function(event)
 	CreateDebugGui(event)
 end)
 
+----------------------------------------
+-- New player created
+----------------------------------------
 script.on_event(defines.events.on_player_created, function(event)
     SetOarcServerMessages(event)
 
@@ -128,12 +135,18 @@ script.on_event(defines.events.on_player_created, function(event)
     end
 end)
 
+----------------------------------------
+-- Player died
+----------------------------------------
 script.on_event(defines.events.on_player_died, function(event)
     if ENABLE_GRAVESTONE_CHESTS then
         CreateGravestoneChestsOnDeath(event)
     end
 end)
 
+----------------------------------------
+-- Player respawned
+----------------------------------------
 script.on_event(defines.events.on_player_respawned, function(event)
     if not ENABLE_SEPARATE_SPAWNS then
         PlayerRespawnItems(event)
@@ -146,12 +159,19 @@ script.on_event(defines.events.on_player_respawned, function(event)
     end
 end)
 
+----------------------------------------
+-- Player leaves
+----------------------------------------
 script.on_event(defines.events.on_player_left_game, function(event)
     if ENABLE_SEPARATE_SPAWNS then
         FindUnusedSpawns(event)
     end
 end)
 
+
+----------------------------------------
+-- Entity built
+----------------------------------------
 script.on_event(defines.events.on_built_entity, function(event)
     if ENABLE_AUTOFILL then
         Autofill(event)
