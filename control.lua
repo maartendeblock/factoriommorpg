@@ -201,4 +201,6 @@ script.on_event(defines.events.on_robot_built_entity, function(event)
     if ENABLE_BLUEPRINT_STRING then
         bps_on_robot_built_entity(event)
     end
-end)
+end
+
+)
