@@ -50,6 +50,9 @@ ENABLE_AUTOFILL = true
 -- Enable BPS
 ENABLE_BLUEPRINT_STRING = true
 
+-- Enable Economy
+ENABLE_ECONOMY = true
+
 --------------------------------------------------------------------------------
 -- Spawn Options
 --------------------------------------------------------------------------------

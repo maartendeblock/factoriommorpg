@@ -13,6 +13,7 @@
 -- Generic Utility Includes
 require("locale/oarc_utils")
 require("locale/debug/debug")
+require("locale/economy/economy")
 require("locale/rso/rso_control")
 require("locale/tag")
 require("locale/blueprintstring/bps")
@@ -46,6 +47,10 @@ script.on_init(function(event)
     if ENABLE_BLUEPRINT_STRING then
         bps_init()
     end
+	
+	if ENABLE_ECONOMY then
+		economy_on_init(event)
+	end	
 
     global.welcome_msg = WELCOME_MSG
     global.welcome_msg_title = WELCOME_MSG_TITLE
@@ -125,6 +130,10 @@ script.on_event(defines.events.on_player_created, function(event)
     else
         SeparateSpawnsPlayerCreated(event)
     end
+	
+	if ENABLE_ECONOMY then
+		economy_on_player_created(event)
+	end	
 	
 	local player = game.players[event.player_index]
 	game.create_force(player.name)
