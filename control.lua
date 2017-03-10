@@ -14,6 +14,7 @@
 require("locale/oarc_utils")
 require("locale/debug/debug")
 require("locale/economy/economy_control")
+require("locale/plot/plot_control")
 require("locale/rso/rso_control")
 require("locale/tag")
 require("locale/blueprintstring/bps")
@@ -50,6 +51,10 @@ script.on_init(function(event)
 	
 	if ENABLE_ECONOMY then
 		economy_on_init(event)
+	end	
+	
+	if ENABLE_ECONOMY then
+		plot_on_init(event)
 	end	
 
     global.welcome_msg = WELCOME_MSG

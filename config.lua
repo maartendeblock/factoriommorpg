@@ -53,6 +53,9 @@ ENABLE_BLUEPRINT_STRING = true
 -- Enable Economy
 ENABLE_ECONOMY = true
 
+-- Enable Plot
+ENABLE_PLOT = true
+
 --------------------------------------------------------------------------------
 -- Spawn Options
 --------------------------------------------------------------------------------
