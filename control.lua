@@ -13,7 +13,7 @@
 -- Generic Utility Includes
 require("locale/oarc_utils")
 require("locale/debug/debug")
-require("locale/economy/economy")
+require("locale/economy/economy_control")
 require("locale/rso/rso_control")
 require("locale/tag")
 require("locale/blueprintstring/bps")
@@ -95,6 +95,10 @@ script.on_event(defines.events.on_gui_click, function(event)
     if ENABLE_BLUEPRINT_STRING then
         bps_on_gui_click(event)
     end
+	
+	if ENABLE_ECONOMY then
+		economy_on_gui_click(event)
+	end		
 end)
 
 
@@ -110,6 +114,10 @@ script.on_event(defines.events.on_player_joined_game, function(event)
 
     if ENABLE_TAGS then
         CreateTagGui(event)
+    end
+	
+	if ENABLE_ECONOMY then
+        economy_on_player_joined_game(event)
     end
 	
 	CreateDebugGui(event)
