@@ -205,4 +205,4 @@ AUTOFILL_TURRET_AMMO_QUANTITY = 20 --10
 --------------------------------------------------------------------------------
 
 -- DEBUG prints for me
-global.oarcDebugEnabled = false
+global.debugEnabled = true

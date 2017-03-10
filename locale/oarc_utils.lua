@@ -59,8 +59,8 @@ my_color_red = {r=1,g=0.1,b=0.1}
 
 -- Print debug only to me while testing.
 function DebugPrint(msg)
-    if ((game.players["Oarc"] ~= nil) and (global.oarcDebugEnabled)) then
-        game.players["Oarc"].print("DEBUG: " .. msg)
+    if ((game.players["Maniah"] ~= nil) and (global.debugEnabled)) then
+        game.players["Maniah"].print("DEBUG: " .. msg)
     end
 end
 

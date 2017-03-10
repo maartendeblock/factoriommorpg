@@ -14,7 +14,6 @@
 -- without shouting.
 function SeparateSpawnsPlayerCreated(event)
     local player = game.players[event.player_index]
-    player.force = MAIN_FORCE
     DisplayWelcomeTextGui(player)
     global.playerCooldowns[player.name] = {setRespawn=event.tick}
 end
@@ -146,8 +145,8 @@ end
 
 
 -- Initializes the globals used to track the special spawn and player
--- status information
 function InitSpawnGlobalsAndForces()
+-- status information
     -- Containes an array of all player spawns
     -- A secondary array tracks whether the character will respawn there.
     if (global.playerSpawns == nil) then
@@ -165,10 +164,6 @@ function InitSpawnGlobalsAndForces()
     if (global.playerCooldowns == nil) then
         global.playerCooldowns = {}
     end
-
-    game.create_force(MAIN_FORCE)
-    game.forces[MAIN_FORCE].set_spawn_position(game.forces["player"].get_spawn_position("nauvis"), "nauvis")
-    -- SetCeaseFireBetweenAllForces()
 end
 
 

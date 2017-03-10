@@ -25,8 +25,8 @@ local SPAWN_GUI_MAX_HEIGHT = 1250
 -- A display gui message
 -- Meant to be display the first time a player joins.
 function DisplayWelcomeTextGui(player)
-    player.gui.center.add{name = "welcome_msg", type = "frame", direction = "vertical", caption=global.welcome_msg_title}
-    local wGui = player.gui.center.welcome_msg
+    player.gui.left.add{name = "welcome_msg", type = "frame", direction = "vertical", caption=global.welcome_msg_title}
+    local wGui = player.gui.left.welcome_msg
 
     wGui.style.maximal_width = SPAWN_GUI_MAX_WIDTH
     wGui.style.maximal_height = SPAWN_GUI_MAX_HEIGHT
@@ -115,8 +115,8 @@ function WelcomeTextGuiClick(event)
     local buttonClicked = event.element.name
 
     if (buttonClicked == "welcome_okay_btn") then
-        if (player.gui.center.welcome_msg ~= nil) then
-            player.gui.center.welcome_msg.destroy()
+        if (player.gui.left.welcome_msg ~= nil) then
+            player.gui.left.welcome_msg.destroy()
         end
         DisplaySpawnOptions(player)
     end
