@@ -164,6 +164,9 @@ function InitSpawnGlobalsAndForces()
     if (global.playerCooldowns == nil) then
         global.playerCooldowns = {}
     end
+    if (global.forcesScore == nil) then
+        global.forcesScore = {}
+    end
 end
 
 

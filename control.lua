@@ -131,6 +131,9 @@ script.on_event(defines.events.on_player_created, function(event)
 	
 	-- Disable landfill
 	game.forces[player.name].technologies["landfill"].enabled = false
+	
+	-- Give a random score
+	global.forcesScore[player.name] = 100
 
     -- Not sure if this should be here or in player joined....
     if ENABLE_BLUEPRINT_STRING then
