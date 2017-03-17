@@ -57,13 +57,6 @@ my_color_red = {r=1,g=0.1,b=0.1}
 -- General Helper Functions
 --------------------------------------------------------------------------------
 
--- Print debug only to me while testing.
-function DebugPrint(msg)
-    if ((game.players["Maniah"] ~= nil) and (global.debugEnabled)) then
-        game.players["Maniah"].print("DEBUG: " .. msg)
-    end
-end
-
 -- Prints flying text.
 -- Color is optional
 function FlyingText(msg, pos, color) 

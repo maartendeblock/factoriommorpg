@@ -12,6 +12,12 @@
 
 -- Generic Utility Includes
 require("locale/oarc_utils")
+require("locale/utils/gui_utils")
+require("locale/utils/table_utils")
+--require("stdlib/gui/gui")
+--require("stdlib/event/event")
+
+-- Modules
 require("locale/debug/debug")
 require("locale/economy/economy_control")
 require("locale/plot/plot_control")
@@ -36,7 +42,6 @@ require("separate_spawns_guis")
 --   time the game starts
 ----------------------------------------
 script.on_init(function(event)
-
     -- Configures the map settings for enemies
     -- This controls evolution growth factors and enemy expansion settings.
     ConfigureAlienStartingParams()
@@ -53,7 +58,7 @@ script.on_init(function(event)
 		economy_on_init(event)
 	end	
 	
-	if ENABLE_ECONOMY then
+	if ENABLE_PLOT then		
 		plot_on_init(event)
 	end	
 
@@ -104,6 +109,10 @@ script.on_event(defines.events.on_gui_click, function(event)
 	if ENABLE_ECONOMY then
 		economy_on_gui_click(event)
 	end		
+	
+	if ENABLE_PLOT then
+		plot_on_gui_click(event)
+	end		
 end)
 
 
@@ -124,6 +133,10 @@ script.on_event(defines.events.on_player_joined_game, function(event)
 	if ENABLE_ECONOMY then
         economy_on_player_joined_game(event)
     end
+
+	if ENABLE_PLOT then
+        plot_on_player_joined_game(event)
+    end	
 	
 	CreateDebugGui(event)
 end)
@@ -155,7 +168,7 @@ script.on_event(defines.events.on_player_created, function(event)
 	game.forces[player.name].technologies["landfill"].enabled = false
 	
 	-- Give a random score
-	global.forcesScore[player.name] = 100
+	-- global.forcesScore[player.name] = 100
 
     -- Not sure if this should be here or in player joined....
     if ENABLE_BLUEPRINT_STRING then

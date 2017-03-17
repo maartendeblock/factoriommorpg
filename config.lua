@@ -27,7 +27,7 @@ WELCOME_MSG_TITLE_OARC = "Welcome to Oarc's Server"
 --------------------------------------------------------------------------------
 
 -- Separate spawns
-ENABLE_SEPARATE_SPAWNS = true
+ENABLE_SEPARATE_SPAWNS = false
 
 -- Enable Scenario version of RSO
 ENABLE_RSO = true
@@ -51,7 +51,7 @@ ENABLE_AUTOFILL = true
 ENABLE_BLUEPRINT_STRING = true
 
 -- Enable Economy
-ENABLE_ECONOMY = true
+ENABLE_ECONOMY = false
 
 -- Enable Plot
 ENABLE_PLOT = true

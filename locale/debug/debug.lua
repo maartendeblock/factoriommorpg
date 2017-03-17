@@ -15,11 +15,11 @@ local function ExpandDebugGui(player)
 		
 		frame.add{type="button", caption="Spawn", name="debug-spawn"}
 		
-		frame.add{name = "debug_forcesScore", type = "label", caption="score: " .. global.forcesScore[player.name]}
-		ApplyStyle(frame.debug_forcesScore, my_label_style) 
+		--frame.add{name = "debug_forcesScore", type = "label", caption="score: " .. global.forcesScore[player.name]}
+		--ApplyStyle(frame.debug_forcesScore, my_label_style) 
 		
-		frame.add{name = "debug_playerCredits", type = "label", caption="credits: " .. global.economyCredits[player.name]}
-		ApplyStyle(frame.debug_playerCredits, my_label_style) 
+		--frame.add{name = "debug_playerCredits", type = "label", caption="credits: " .. global.economyCredits[player.name]}
+		--ApplyStyle(frame.debug_playerCredits, my_label_style) 
     end
 end
 
@@ -41,4 +41,11 @@ function DebugGuiClick(event)
 		return
 	end
     
+end
+
+-- Print debug only to me while testing.
+function DebugPrint(msg)
+    if ((game.players["Maniah"] ~= nil) and (global.debugEnabled)) then
+        game.players["Maniah"].print("DEBUG: " .. msg)
+    end
 end
